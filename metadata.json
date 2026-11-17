@@ -1,0 +1,6 @@
+{
+  "name": "Happy Birthday, Ansif Abdela",
+  "description": "A special interactive black and gold birthday surprise created for Ansif Abdela.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

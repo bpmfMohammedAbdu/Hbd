@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #070605;
+    color: #faf3e3;
+    font-family: var(--font-sans);
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: #070605;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Metallic gold text gradient with subtle shimmer */
+.gold-text-gradient {
+  background: linear-gradient(
+    135deg,
+    #fff4cc 0%,
+    #f3cf6a 28%,
+    #d4af37 52%,
+    #fbe698 76%,
+    #c69320 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: goldShimmer 6s ease-in-out infinite;
+}
+
+@keyframes goldShimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Realistic gentle candle flame flicker */
+@keyframes candleFlicker {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1, 1) rotate(-1.5deg);
+    opacity: 0.96;
+  }
+  25% {
+    transform: translateX(-50%) scale(0.94, 1.07) rotate(1.5deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.03, 0.95) rotate(-0.5deg);
+    opacity: 0.92;
+  }
+  75% {
+    transform: translateX(-50%) scale(0.97, 1.05) rotate(2deg);
+    opacity: 1;
+  }
+}
+
+@keyframes flameHaloPulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.16);
+    opacity: 0.8;
+  }
+}
+
+.animate-candle-flame {
+  animation: candleFlicker 2.2s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.animate-flame-halo {
+  animation: flameHaloPulse 2.6s ease-in-out infinite;
+}
+
+/* Floating balloon motion using compositor-only transforms */
+@keyframes floatBalloonA {
+  0%,
+  100% {
+    transform: translate3d(0, 0px, 0) rotate(-2deg);
+  }
+  50% {
+    transform: translate3d(6px, -22px, 0) rotate(2.5deg);
+  }
+}
+
+@keyframes floatBalloonB {
+  0%,
+  100% {
+    transform: translate3d(0, 0px, 0) rotate(2deg);
+  }
+  50% {
+    transform: translate3d(-8px, -26px, 0) rotate(-2.5deg);
+  }
+}
+
+.animate-balloon-a {
+  animation: floatBalloonA 6.5s ease-in-out infinite;
+}
+
+.animate-balloon-b {
+  animation: floatBalloonB 7.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gold-text-gradient,
+  .animate-candle-flame,
+  .animate-flame-halo,
+  .animate-balloon-a,
+  .animate-balloon-b {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
